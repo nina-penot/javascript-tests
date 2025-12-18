@@ -1,0 +1,21 @@
+.slot {
+    width: 54px;
+    height: 54px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: palevioletred;
+    margin: 5px;
+}
+
+.drag_elem {
+    border-radius: 100%;
+    background-color: rgb(198, 12, 12);
+    width: 52px;
+    height: 52px;
+}
+
+.drag_elem_free {
+    background-color: rgb(61, 210, 61);
+    width: 100px;
+    height: 100px;
+}
