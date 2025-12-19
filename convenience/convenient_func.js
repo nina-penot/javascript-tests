@@ -239,6 +239,7 @@ function easy_drag_item_mouse_free(item) {
     item.style.position = "fixed";
 
     function mousemove(d_e) {
+        let w_height = window.innerHeight, w_width = window.innerWidth;
         newX = startX - d_e.clientX;
         newY = startY - d_e.clientY;
 
@@ -247,6 +248,17 @@ function easy_drag_item_mouse_free(item) {
 
         item.style.top = (item.offsetTop - newY) + 'px';
         item.style.left = (item.offsetLeft - newX) + 'px';
+
+        if (item.offsetTop - newY < 0) {
+            item.style.top = 0 + "px";
+        } else if (item.offsetTop - newY + item.clientHeight > w_height) {
+            item.style.top = w_height - item.clientHeight + "px";
+        }
+        if (item.offsetLeft - newX < 0) {
+            item.style.left = 0 + "px";
+        } else if (item.offsetLeft - newX + item.clientWidth > w_width) {
+            item.style.left = w_width - item.clientHeight + "px";
+        }
 
         console.log({ newX, newY });
         console.log({ startX, startY });
