@@ -234,6 +234,15 @@ function easy_drag_slot(elem, styling = null) {
     })
 }
 
+/**
+ * Makes an element a mouse free drag element. Allows the element to be dragged around
+ * wherever in the page.
+ * 
+ * Also makes it bound to the page size, so it cannot go outside the bounding
+ * of the page. Works also on page resizing.
+ * 
+ * @param {*} item The element that will become a mouse free element
+ */
 function easy_drag_item_mouse_free(item) {
     let startX = 0, startY = 0, newX = 0, newY = 0;
     item.style.position = "fixed";
@@ -257,12 +266,30 @@ function easy_drag_item_mouse_free(item) {
         if (item.offsetLeft - newX < 0) {
             item.style.left = 0 + "px";
         } else if (item.offsetLeft - newX + item.clientWidth > w_width) {
-            item.style.left = w_width - item.clientHeight + "px";
+            item.style.left = w_width - item.clientWidth + "px";
         }
 
         console.log({ newX, newY });
         console.log({ startX, startY });
     }
+
+    window.addEventListener("resize", (a) => {
+        const current_h = a.target.innerHeight;
+        const current_w = a.target.innerWidth;
+
+        if (item.offsetTop < 0) {
+            item.style.top = 0 + "px";
+        } else if (item.offsetTop + item.clientHeight > current_h) {
+            item.style.top = current_h - item.clientHeight + "px";
+        }
+        if (item.offsetLeft < 0) {
+            item.style.left = 0 + "px";
+        } else if (item.offsetLeft + item.clientWidth > current_w) {
+            item.style.left = current_w - item.clientWidth + "px";
+        }
+
+        console.log(current_h, current_w);
+    });
 
     item.addEventListener("mousedown", (e) => {
         startX = e.clientX;
