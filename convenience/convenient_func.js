@@ -245,7 +245,6 @@ function easy_drag_slot(elem, styling = null) {
  */
 function easy_drag_item_mouse_free(item) {
     let startX = 0, startY = 0, newX = 0, newY = 0;
-    item.style.position = "fixed";
 
     function mousemove(d_e) {
         let w_height = window.innerHeight, w_width = window.innerWidth;
@@ -292,6 +291,8 @@ function easy_drag_item_mouse_free(item) {
     });
 
     item.addEventListener("mousedown", (e) => {
+        //may need to be position fixed, needs some testing
+        item.style.position = "absolute";
         startX = e.clientX;
         startY = e.clientY;
         //follow mouse position
@@ -303,4 +304,12 @@ function easy_drag_item_mouse_free(item) {
     // item.addEventListener("mouseup", (e) => {
     //     //drops the element at mouse position
     // })
+}
+
+function easy_drag_item_mouse_limited(item) {
+    easy_drag_item_mouse_free(item);
+    item.addEventListener("mouseup", (e) => {
+        item.style = "";
+        item.style.position = "";
+    })
 }

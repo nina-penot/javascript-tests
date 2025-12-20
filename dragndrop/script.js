@@ -2,6 +2,7 @@ const get_ball = easy_class_get("drag_elem");
 const get_slots = easy_class_get("slot");
 const drag_slot_style = "background-color:red; width: 100px;"
 const get_free_drag = easy_class_get("drag_elem_free");
+const get_limited_drag = easy_class_get("drag_elem_limited");
 
 if (NodeList.prototype.isPrototypeOf(get_ball)) {
     get_ball.forEach(ball => {
@@ -22,3 +23,5 @@ if (NodeList.prototype.isPrototypeOf(get_free_drag)) {
 } else {
     easy_drag_item_mouse_free(get_free_drag);
 }
+
+easy_drag_item_mouse_limited(get_limited_drag);

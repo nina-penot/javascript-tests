@@ -20,6 +20,8 @@
 
     <div class="drag_elem_free"></div>
 
+    <div class="drag_elem_limited"></div>
+
     <script src="../convenience/convenient_func.js"></script>
     <script src="./script.js"></script>
 </body>

@@ -19,3 +19,10 @@
     width: 100px;
     height: 100px;
 }
+
+.drag_elem_limited {
+    background-color: rgb(61, 155, 210);
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+}
