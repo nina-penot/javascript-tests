@@ -25,3 +25,10 @@ if (NodeList.prototype.isPrototypeOf(get_free_drag)) {
 }
 
 easy_drag_item_mouse_limited(get_limited_drag);
+
+get_free_drag.setAttribute("colliding", false);
+let bound = get_free_drag.getBoundingClientRect();
+console.log(bound);
+
+let tester = document.elementFromPoint(bound.x + 10, 100);
+console.log(tester);

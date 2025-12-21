@@ -268,8 +268,22 @@ function easy_drag_item_mouse_free(item) {
             item.style.left = w_width - item.clientWidth + "px";
         }
 
+        // gets all elements being in position of a single x y point
+        let ignored_behind = ["body", "html", item];
+        let behind = document.elementsFromPoint(item.offsetLeft - newX, item.offsetTop - newY);
+        let clean_behind = [];
+        for (b in behind) {
+            if (ignored_behind.includes(behind[b].localName) || ignored_behind.includes(behind[b])) {
+                // console.log(behind[b]);
+                // behind.splice(b, 1);
+            } else {
+                clean_behind.push(behind[b]);
+            }
+        }
+
         console.log({ newX, newY });
         console.log({ startX, startY });
+        console.log(clean_behind);
     }
 
     window.addEventListener("resize", (a) => {
