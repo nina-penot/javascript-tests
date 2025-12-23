@@ -10,6 +10,35 @@ function is_array(x) {
     }
 }
 
+function getmax(a, b) {
+    return Math.max(a, b);
+}
+
+function getmin(a, b) {
+    return Math.min(a, b);
+}
+
+function get_max_from_arr(arr) {
+    return arr.reduce(getmax);
+}
+
+function get_min_from_arr(arr) {
+    return arr.reduce(getmin);
+}
+
+/**
+ * Returns key from object with highest value
+ * @param {*} obj 
+ * @returns 
+ */
+function get_max_from_obj(obj) {
+    return Object.keys(obj).reduce(function (a, b) { return obj[a] > obj[b] ? a : b });
+}
+
+function get_min_from_obj(obj) {
+    return Object.keys(obj).reduce(function (a, b) { return obj[a] < obj[b] ? a : b });
+}
+
 //---------------------------------------------------
 // Select elements
 //---------------------------------------------------
