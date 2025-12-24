@@ -26,6 +26,16 @@ function get_min_from_arr(arr) {
     return arr.reduce(getmin);
 }
 
+function pythagoras(a, b) {
+    return Math.sqrt(a * a + b * b);
+}
+
+function closest_from_center(elem, arr_of_elems) {
+    //needs to use bounding box to get the position of the center of all elements
+    //then use it to decide which elem of the array is closest to main element
+    //use pythagoras
+}
+
 /**
  * Returns key from object with highest value
  * @param {*} obj 
@@ -35,6 +45,11 @@ function get_max_from_obj(obj) {
     return Object.keys(obj).reduce(function (a, b) { return obj[a] > obj[b] ? a : b });
 }
 
+/**
+ * Returns key from object with lowest value
+ * @param {*} obj 
+ * @returns 
+ */
 function get_min_from_obj(obj) {
     return Object.keys(obj).reduce(function (a, b) { return obj[a] < obj[b] ? a : b });
 }
@@ -312,6 +327,7 @@ function easy_drag_item_mouse_free(item) {
 
         console.log({ newX, newY });
         console.log({ startX, startY });
+        console.log("clean behind:");
         console.log(clean_behind);
     }
 
@@ -349,10 +365,28 @@ function easy_drag_item_mouse_free(item) {
     // })
 }
 
+//NOTE: may need to revise that in case an object has a position part of og style as to not destroy that
+//Might need to make this independant from mouse free function
+/**
+ * 
+ * @param {*} item 
+ */
 function easy_drag_item_mouse_limited(item) {
     easy_drag_item_mouse_free(item);
     item.addEventListener("mouseup", (e) => {
         item.style = "";
         item.style.position = "";
     })
+}
+
+function easy_collide_check(elem1, elem2) {
+    elem1_b = elem1.getBoundingClientRect();
+    elem2_b = elem2.getBoundingClientRect();
+
+    return !(
+        ((elem1_b.y + elem1_b.height) < (elem2_b.y)) ||
+        (elem1_b.y > (elem2_b.y + elem2_b.height)) ||
+        ((elem1_b.x + elem1_b.width) < elem2_b.x) ||
+        (elem1_b.x > (elem2_b.x + elem2_b.width))
+    );
 }

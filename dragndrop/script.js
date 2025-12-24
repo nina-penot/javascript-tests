@@ -30,5 +30,20 @@ get_free_drag.setAttribute("colliding", false);
 let bound = get_free_drag.getBoundingClientRect();
 console.log(bound);
 
-let tester = document.elementFromPoint(bound.x + 10, 100);
-console.log(tester);
+console.log(get_slots.length);
+
+get_free_drag.addEventListener("mousedown", (e) => {
+    get_free_drag.addEventListener("mousemove", function collidecheck(e) {
+        for (i = 0; i < get_slots.length; i++) {
+            if (easy_collide_check(get_free_drag, get_slots[i])) {
+                console.log("slot in pos: " + i + ", colliding.");
+                console.log(get_free_drag.closest(".slot"));
+            }
+        }
+
+        get_free_drag.addEventListener("mouseup", (e) => {
+            get_free_drag.removeEventListener("mousemove", collidecheck);
+        });
+    })
+});
+
