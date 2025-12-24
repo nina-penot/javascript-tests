@@ -37,7 +37,6 @@ get_free_drag.addEventListener("mousedown", (e) => {
         for (i = 0; i < get_slots.length; i++) {
             if (easy_collide_check(get_free_drag, get_slots[i])) {
                 console.log("slot in pos: " + i + ", colliding.");
-                console.log(get_free_drag.closest(".slot"));
             }
         }
 

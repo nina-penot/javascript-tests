@@ -36,6 +36,10 @@ function closest_from_center(elem, arr_of_elems) {
     //use pythagoras
 }
 
+function get_distance(elem1, elem2) { }
+
+function get_distance_from_center(elem1, elem2) { }
+
 /**
  * Returns key from object with highest value
  * @param {*} obj 
