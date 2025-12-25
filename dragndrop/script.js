@@ -34,10 +34,20 @@ console.log(get_slots.length);
 
 get_free_drag.addEventListener("mousedown", (e) => {
     get_free_drag.addEventListener("mousemove", function collidecheck(e) {
+        let colliders = [];
         for (i = 0; i < get_slots.length; i++) {
             if (easy_collide_check(get_free_drag, get_slots[i])) {
                 console.log("slot in pos: " + i + ", colliding.");
+                colliders.push(get_slots[i]);
             }
+        }
+
+        if (colliders.length > 1) {
+            // console.log(colliders);
+            // console.log(closest_from_center(get_free_drag, colliders));
+            let closest = colliders[closest_from_center(get_free_drag, colliders)];
+            console.log(closest)
+            // closest.style.backgroundColor = "black";
         }
 
         get_free_drag.addEventListener("mouseup", (e) => {

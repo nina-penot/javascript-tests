@@ -30,12 +30,6 @@ function pythagoras(a, b) {
     return Math.sqrt(a * a + b * b);
 }
 
-function closest_from_center(elem, arr_of_elems) {
-    //needs to use bounding box to get the position of the center of all elements
-    //then use it to decide which elem of the array is closest to main element
-    //use pythagoras
-}
-
 function get_distance(elem1, elem2) { }
 
 function get_distance_from_center(elem1, elem2) { }
@@ -56,6 +50,36 @@ function get_max_from_obj(obj) {
  */
 function get_min_from_obj(obj) {
     return Object.keys(obj).reduce(function (a, b) { return obj[a] < obj[b] ? a : b });
+}
+
+function closest_from_center(elem, arr_of_elems) {
+    //needs an array check in case there's only one?
+    //needs to use bounding box to get the position of the center of all elements
+    //then get x distance and y distance
+    //then use it to decide which elem of the array is closest to main element
+    //use pythagoras
+    let elem_bounds = elem.getBoundingClientRect();
+    let elem_center_x = elem_bounds.x + (elem_bounds.width / 2);
+    let elem_center_y = elem_bounds.y + (elem_bounds.height / 2);
+    let distances = {}
+    for (e = 0; e < arr_of_elems.length; e++) {
+        let test_bounds = arr_of_elems[e].getBoundingClientRect();
+        let test_center_x = test_bounds.x + (test_bounds.width / 2);
+        let test_center_y = test_bounds.y + (test_bounds.height / 2);
+        let x_dist = test_center_x - elem_center_x;
+        let y_dist = test_center_y - elem_center_y;
+        //don't forget to convert to positives if negative (>0)
+        if (x_dist < 0) {
+            x_dist = x_dist * -1;
+        }
+        if (y_dist < 0) {
+            y_dist = y_dist * -1;
+        }
+        distances[e] = pythagoras(x_dist, y_dist);
+    }
+    console.log(distances);
+
+    return get_min_from_obj(distances);
 }
 
 //---------------------------------------------------
@@ -331,8 +355,6 @@ function easy_drag_item_mouse_free(item) {
 
         console.log({ newX, newY });
         console.log({ startX, startY });
-        console.log("clean behind:");
-        console.log(clean_behind);
     }
 
     window.addEventListener("resize", (a) => {
@@ -350,7 +372,6 @@ function easy_drag_item_mouse_free(item) {
             item.style.left = current_w - item.clientWidth + "px";
         }
 
-        console.log(current_h, current_w);
     });
 
     item.addEventListener("mousedown", (e) => {
