@@ -341,17 +341,17 @@ function easy_drag_item_mouse_free(item) {
         }
 
         // gets all elements being in position of a single x y point
-        let ignored_behind = ["body", "html", item];
-        let behind = document.elementsFromPoint(item.offsetLeft - newX, item.offsetTop - newY);
-        let clean_behind = [];
-        for (b in behind) {
-            if (ignored_behind.includes(behind[b].localName) || ignored_behind.includes(behind[b])) {
-                // console.log(behind[b]);
-                // behind.splice(b, 1);
-            } else {
-                clean_behind.push(behind[b]);
-            }
-        }
+        // let ignored_behind = ["body", "html", item];
+        // let behind = document.elementsFromPoint(item.offsetLeft - newX, item.offsetTop - newY);
+        // let clean_behind = [];
+        // for (b in behind) {
+        //     if (ignored_behind.includes(behind[b].localName) || ignored_behind.includes(behind[b])) {
+        //         // console.log(behind[b]);
+        //         // behind.splice(b, 1);
+        //     } else {
+        //         clean_behind.push(behind[b]);
+        //     }
+        // }
 
         console.log({ newX, newY });
         console.log({ startX, startY });
@@ -388,6 +388,10 @@ function easy_drag_item_mouse_free(item) {
     // item.addEventListener("mouseup", (e) => {
     //     //drops the element at mouse position
     // })
+}
+
+function easy_remove_all_events(item) {
+    item.replaceWith(item.cloneNode(true));
 }
 
 //NOTE: may need to revise that in case an object has a position part of og style as to not destroy that

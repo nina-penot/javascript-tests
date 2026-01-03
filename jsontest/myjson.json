@@ -1,0 +1,10 @@
+{
+    "strawberry": {
+        "taste": "sweet",
+        "color": "red"
+    },
+    "banana": {
+        "taste": "sweet",
+        "color": "yellow"
+    }
+}
