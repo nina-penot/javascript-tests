@@ -13,7 +13,7 @@
     <div class="game_cont">
 
         <div class="food_cont">
-            <div class="food_basket" draggable="false"></div>
+            <!-- <div class="food_basket" draggable="false"></div> -->
         </div>
 
         <div class="cauldron_container">
@@ -25,16 +25,19 @@
                 <div class="cauldron_slot"></div>
                 <div class="cauldron_slot"></div>
             </div>
+            <div>
+                <button onclick="clear_ingredients()">Clear ingredients</button>
+                <button onclick="cook()">Cook!</button>
+            </div>
         </div>
 
-        <div>
-            <button onclick="clear_ingredients()">Clear ingredients</button>
-            <button>Cook!</button>
-        </div>
+        <div class="result"></div>
 
     </div>
 
     <script src="../../convenience/convenient_func.js"></script>
+    <script src="./code/objects.js"></script>
+    <script src="./code/items.js"></script>
     <script src="./code/main.js"></script>
 </body>
 

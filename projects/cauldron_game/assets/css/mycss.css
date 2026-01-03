@@ -62,3 +62,11 @@
     overflow: hidden;
     max-height: 300px;
 }
+
+.result {
+    border-radius: 100%;
+    background-color: rgb(201, 191, 180);
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+}
