@@ -195,7 +195,7 @@ function easy_find_child(parent, tagname = null, position = null) {
 }
 
 //---------------------------------------------------
-// Add/create elements
+// Add/create/remove elements
 //---------------------------------------------------
 
 /**
@@ -246,6 +246,14 @@ function easy_append_children(parent, children) {
     } else {
         parent.appendChild(children);
     }
+}
+
+/**
+ * Clears all children element from a parent element.
+ * @param {*} parent 
+ */
+function easy_clear_children(parent) {
+    parent.innerHTML = "";
 }
 
 //---------------------------------------------------
