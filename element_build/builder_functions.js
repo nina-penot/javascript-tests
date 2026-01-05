@@ -24,3 +24,8 @@ function builder_inscr_form(textfields) {
     //needs password
     //needs verification of password
 }
+
+/**
+ * Builds a calendar element.
+ */
+function builder_calendar() { }
