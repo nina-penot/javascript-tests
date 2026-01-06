@@ -88,15 +88,18 @@ const inventory = easy_class_get("cauldron_inv");
 
 for (i in food_items) {
     let basket_create = easy_quick_create("img");
-    basket_create.src = food_items[i]["container"].img;
+    //basket_create.src = food_items[i]["container"].img;
+    basket_create.src = food_items[i]["container"]["img"];
     basket_create.setAttribute("draggable", false);
     basket_create.dataset.name = i;
     basket_create.addEventListener("mousedown", (e) => {
         e.preventDefault();
         let food_item = easy_quick_create("img");
-        food_item.src = food_items[basket_create.dataset.name]["container"].food.img;
+        // food_item.src = food_items[basket_create.dataset.name]["container"].food.img;
+        food_item.src = food_items[basket_create.dataset.name]["food"]["img"];
         food_item.setAttribute("draggable", false);
-        food_item.dataset.name = basket_create.dataset.name;
+        // food_item.dataset.name = basket_create.dataset.name;
+        food_item.dataset.name = food_items[basket_create.dataset.name]["food"]["name"];
         document.body.insertBefore(food_item, document.body.firstChild);
 
         mouse_x = e.clientX;
