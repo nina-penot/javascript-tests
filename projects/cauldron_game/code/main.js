@@ -50,6 +50,10 @@ function cook() {
 
     if (!my_ingredients.length) {
         console.log("No ingredients!");
+    } else {
+        console.log(my_ingredients);
+        let ingr_count = count_array_elements(my_ingredients);
+        console.log(ingr_count);
     }
 }
 

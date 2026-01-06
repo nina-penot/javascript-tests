@@ -82,6 +82,29 @@ function closest_from_center(elem, arr_of_elems) {
     return get_min_from_obj(distances);
 }
 
+/**
+ * Count the elements in an array
+ * @param {*} arr 
+ * @returns 
+ */
+function count_array_elements(arr) {
+    let count_obj = {};
+
+    if (arr.length && is_array(arr)) {
+        for (i in arr) {
+            if (count_obj[arr[i]]) {
+                count_obj[arr[i]] += 1;
+            } else {
+                count_obj[arr[i]] = 1;
+            }
+        }
+        return count_obj;
+    } else {
+        console.warn("count_array_elements: ERROR! not an array");
+        return null;
+    }
+}
+
 //---------------------------------------------------
 // Select elements
 //---------------------------------------------------
