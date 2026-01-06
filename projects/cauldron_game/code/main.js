@@ -16,7 +16,7 @@ function spawn_item(e) {
     food_item.dispatchEvent(msdown);
     food_item.addEventListener("mouseup", function cauldron_check(e) {
         if (easy_collide_check(food_item, cauldron)) {
-            console.log("on cauldron...");
+            //console.log("on cauldron...");
             //add to the cauldron slots
             for (i = 0; i < inventory.children.length; i++) {
                 if (inventory.children[i].children.length == 0) {
@@ -87,7 +87,7 @@ const inventory = easy_class_get("cauldron_inv");
 //Makes a food depending on ingredients
 
 for (i in food_items) {
-    let basket_create = easy_quick_create("img");
+    let basket_create = easy_quick_create("img", "food_basket");
     //basket_create.src = food_items[i]["container"].img;
     basket_create.src = food_items[i]["container"]["img"];
     basket_create.setAttribute("draggable", false);
@@ -116,7 +116,7 @@ for (i in food_items) {
         food_item.dispatchEvent(msdown);
         food_item.addEventListener("mouseup", function cauldron_check(e) {
             if (easy_collide_check(food_item, cauldron)) {
-                console.log("on cauldron...");
+                //console.log("on cauldron...");
                 //add to the cauldron slots
                 for (i = 0; i < inventory.children.length; i++) {
                     if (inventory.children[i].children.length == 0) {
@@ -133,5 +133,5 @@ for (i in food_items) {
         });
     });
     easy_append_children(food_cont, basket_create);
-    console.log(basket_create);
+    //console.log(basket_create);
 }

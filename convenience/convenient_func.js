@@ -388,8 +388,8 @@ function easy_drag_item_mouse_free(item) {
         //     }
         // }
 
-        console.log({ newX, newY });
-        console.log({ startX, startY });
+        //console.log({ newX, newY });
+        //console.log({ startX, startY });
     }
 
     window.addEventListener("resize", (a) => {

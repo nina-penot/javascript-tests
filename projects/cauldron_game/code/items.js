@@ -18,6 +18,7 @@ const food_items = {
         "food": {
             "img": "./assets/sprites/foods/strawberry.png",
             "name": "strawberry",
+            "tags": ["sweet", "fruit"],
         },
     },
     "sugar": {
@@ -28,6 +29,7 @@ const food_items = {
         "food": {
             "img": "./assets/sprites/foods/sugar.png",
             "name": "sugar",
+            "tags": ["sweet"],
         },
     }
 }
