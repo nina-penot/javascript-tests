@@ -38,6 +38,7 @@
     <script src="../../convenience/convenient_func.js"></script>
     <script src="./code/objects.js"></script>
     <script src="./code/items.js"></script>
+    <script src="./code/recipes.js"></script>
     <script src="./code/main.js"></script>
 </body>
 

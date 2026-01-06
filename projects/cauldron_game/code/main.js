@@ -43,7 +43,7 @@ function cook() {
     let my_ingredients = []
     for (i = 0; i < inventory.children.length; i++) {
         if (inventory.children[i].children.length) {
-            console.log(inventory.children[i].firstChild.dataset.name);
+            //console.log(inventory.children[i].firstChild.dataset.name);
             my_ingredients.push(inventory.children[i].firstChild.dataset.name);
         }
     }
@@ -51,9 +51,20 @@ function cook() {
     if (!my_ingredients.length) {
         console.log("No ingredients!");
     } else {
-        console.log(my_ingredients);
+        //console.log(my_ingredients);
         let ingr_count = count_array_elements(my_ingredients);
-        console.log(ingr_count);
+        let recipe = "";
+        for (a in recipes) {
+            if (are_object_equal(recipes[a], ingr_count)) {
+                recipe = a;
+                break;
+            }
+        }
+        if (recipe) {
+            console.log("You cooked " + recipe + "!");
+        } else {
+            console.log("No recipe found...");
+        }
     }
 }
 

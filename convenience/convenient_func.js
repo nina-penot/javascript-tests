@@ -105,6 +105,10 @@ function count_array_elements(arr) {
     }
 }
 
+function are_object_equal(a, b) {
+    return Object.entries(a).sort().toString() === Object.entries(b).sort().toString();
+}
+
 //---------------------------------------------------
 // Select elements
 //---------------------------------------------------
