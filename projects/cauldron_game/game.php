@@ -31,7 +31,11 @@
             </div>
         </div>
 
-        <div class="result"></div>
+        <div class="result_cont">
+            <div class="result" id="result_plate"></div>
+            <div style="text-align: center;" id="result_intro"></div>
+            <div style="text-align: center;" id="result"></div>
+        </div>
 
     </div>
 

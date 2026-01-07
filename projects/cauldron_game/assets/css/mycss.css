@@ -62,10 +62,19 @@
     max-height: 300px;
 }
 
+.result_cont {
+    display: inline-block;
+    border-radius: 10px;
+    background-color: beige;
+    padding: 15px;
+    overflow: scroll;
+}
+
 .result {
     border-radius: 100%;
     background-color: rgb(201, 191, 180);
     width: 200px;
     height: 100px;
     margin: 10px;
+    margin-top: 20px;
 }
