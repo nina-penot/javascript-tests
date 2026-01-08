@@ -33,6 +33,16 @@
 //     });
 // }
 
+let countdown;
+function timed_clear_result() {
+    mytime = 1000 * 3;
+    countdown = window.setTimeout(() => {
+        result_text_intro.innerHTML = "";
+        result_text.innerHTML = "";
+        console.log(countdown);
+    }, mytime);
+}
+
 function clear_ingredients() {
     for (i = 0; i < inventory.children.length; i++) {
         inventory.children[i].innerHTML = "";
@@ -69,12 +79,8 @@ function cook() {
             result_text_intro.textContent = "No recipe found... :(";
         }
         clear_ingredients();
-        mytime = 1000 * 3;
-        countdown = "";
-        countdown = setTimeout(() => {
-            result_text_intro.innerHTML = "";
-            result_text.innerHTML = "";
-        }, mytime);
+        clearTimeout(countdown);
+        timed_clear_result();
     }
 }
 
@@ -123,10 +129,10 @@ for (i in food_items) {
         food_item.onload = function () {
             fd_width = food_item.width;
             fd_height = food_item.height;
-            console.log(food_item.getBoundingClientRect());
+            //console.log(food_item.getBoundingClientRect());
 
-            console.log(food_item);
-            console.log("x" + mouse_x + "y" + mouse_y + " " + "item:" + fd_width + "/" + fd_height);
+            //console.log(food_item);
+            //console.log("x" + mouse_x + "y" + mouse_y + " " + "item:" + fd_width + "/" + fd_height);
 
             food_item.style.position = "fixed";
             food_item.style.left = (mouse_x - fd_width / 2) + "px";
@@ -139,7 +145,7 @@ for (i in food_items) {
         food_item.dispatchEvent(msdown);
 
         function cauldron_check(e) {
-            console.log("mouseup")
+            //console.log("mouseup")
             e.preventDefault();
             if (easy_collide_check(food_item, cauldron)) {
                 //console.log("on cauldron...");
@@ -181,7 +187,7 @@ for (i in food_items) {
         food_item.addEventListener("mouseup", cauldron_check);
 
         food_item.addEventListener("mouseleave", (e) => {
-            console.log("mouse left!");
+            //console.log("mouse left!");
             document.addEventListener("mouseup", cauldron_check);
         })
     });
