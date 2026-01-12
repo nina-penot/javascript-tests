@@ -2,13 +2,87 @@
 // Shorter write
 //---------------------------------------------------
 
+/**
+ * Checks if a var is an array.
+ * @param {*} x The variable to test
+ * @returns 
+ */
 function is_array(x) {
-    if (Array.isArray(x)) {
+    if (x instanceof Array) {
         return true;
     } else {
         return false;
     }
 }
+
+/**
+ * Checks if var is an object (var = {a:b} type).
+ * @param {*} x 
+ * @returns 
+ */
+function is_object(x) {
+    if (typeof x == "object" && !(x instanceof Array)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Advanced version of typeof which can distinguish between array and object.
+ * @param {*} x 
+ * @returns 
+ */
+function typeof_advanced(x) {
+    if (typeof x == "object" && !(x instanceof Array)) {
+        return "object";
+    }
+    if (x instanceof Array) {
+        return "array";
+    }
+    if (typeof x == "bigint") {
+        return "bigint";
+    }
+    if (Number(x) && x % 1 === 0) {
+        return "integer";
+    }
+    if (Number(x) && x % 1 !== 0) {
+        return "float";
+    }
+    if (typeof x == "string") {
+        return "string";
+    }
+    if (typeof x == "boolean") {
+        return "boolean";
+    }
+    if (typeof x == "undefined") {
+        return "undefined";
+    }
+    if (typeof x == "symbol") {
+        return "symbol";
+    }
+    if (isNaN(x)) {
+        return "nan";
+    }
+    return "unknown";
+}
+
+/**
+ * Removes a selected character from a string.
+ * Can work very well to undo unwanted inputs for example.
+ * @param {*} string 
+ * @param {*} selected 
+ * @returns 
+ */
+function remove_selected_from_string(string, selected) {
+    let index = string.indexOf(selected);
+    let test = string.slice(0, index) + string.slice(index + 1);
+    return test;
+}
+
+//---------------------------------------------------
+// MATH
+//---------------------------------------------------
 
 function getmax(a, b) {
     return Math.max(a, b);
